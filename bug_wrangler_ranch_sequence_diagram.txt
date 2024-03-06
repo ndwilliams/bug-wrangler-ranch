@@ -29,4 +29,14 @@ end
 cattle->main: Here is an array of cattleType objects, which represent the individual cattle that will make the journey.
 
 main->journey: May I please have the path that the journey will take?
-journey->utils:
+
+
+note over journey: createRivers function creates a\nrandom floating point between 0 and 1,\nmultiplies it by an integer(3),\nrounds down to the nearest integer\nand then adds by 1 to return a value\nbetween 1 and 4 to represent the number of rivers.
+note over journey: The same process is used\nto determine the number of\nmountains, forests, and\nplains in the journey. These\nfunctions are invoked and\nthe return values (integers\nrepresenting number of rivers,\netc.) stored as the values in an object.
+loop 
+journey->journey: iterate through the number of rivers,\nforests, etc. and push a string ('plain') to an array.
+end
+journey->utils: invoke randomize function on\narray of journeys, please!
+note over utils: randomize function randomly\nsorts an array by randomizing\nthe return value of the compare function.
+utils->journey: Here is the randomized array of\nterrain the journey will go on.
+journey->main: Here is the journey that this trip will take!
