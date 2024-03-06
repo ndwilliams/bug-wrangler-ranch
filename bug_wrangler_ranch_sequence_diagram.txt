@@ -1,0 +1,32 @@
+title Bug Wrangler Ranch
+
+bottomparticipants 
+
+participant main
+participant drovers
+database database
+participant cattle
+participant journey
+participant utils
+
+
+main->drovers: May I please have the specific drovers for this journey?
+drovers->database: May I please have all the drovers
+database->drovers: Here are all the drovers
+loop 
+drovers->drovers: Iterate through the drovers array\nx times where x is the number of\ndrovers needed proportional to\nthe amount of cattle.
+note over drovers: Each iteration will randomize a number between\n1 and the total number of drovers to send me a\nrandom ID that corresponds to a drover. Then\n push that drover object to an array based on the drover's ID.
+end
+drovers->main: Here are the drovers for the journey!
+
+main->cattle: May I please have the cattle types for each cattle in the journey?
+cattle->database: May I please have all the cattle types?
+database->cattle: Here is an array of all the cattle types!
+loop 
+cattle->cattle: Iterate x times where\nx is the number of cattle on the journey
+note over cattle: Randomize a number between 1 and\nthe total types of cattle (4), extract an\nobject(which represents an individual cattle) ,\nwhose id matches the randomized number,\nfrom the cattleType array and push that object\nto an empty array
+end
+cattle->main: Here is an array of cattleType objects, which represent the individual cattle that will make the journey.
+
+main->journey: May I please have the path that the journey will take?
+journey->utils:

@@ -23,16 +23,31 @@ console.log(`
                                ||w--||     \\|/
 `)
 
-console.log(`You will be accompanying ${drovers.length} drovers as they drive ${cattleToDrive} cattle to Old Red's Ranch for grazing`)
-console.log(`\nThe herd is made of up the following cattle (only their breed is shown):`)
-console.log(`${cattle}\n`)
+console.log(
+	`You will be accompanying ${drovers.length} drovers as they drive ${cattleToDrive} cattle to Old Red's Ranch for grazing`
+)
+console.log(`\nThe herd is made of up the following cattle:`)
+
+const cattleTypes = (cattleArray) => {
+	let cattleString = ``
+	for (const cattle of cattleArray) {
+		cattleString += `${cattle.breed},`
+	}
+	cattleString = cattleString.slice(0, -1)
+	return cattleString
+}
+
+cattleList = cattleTypes(cattle)
+console.log(cattleList)
 
 console.log("Here is the team of drovers you will be joining")
 for (const drover of drovers) {
-    console.log(`\t* ${drover.first_name} ${drover.last_name}`)
+	console.log(`\t* ${drover.first_name} ${drover.last_name}`)
 }
 
-console.log("\n\nYour journey will take you through the wildness of the American Midwest and across the following terrain")
+console.log(
+	"\n\nYour journey will take you through the wildness of the American Midwest and across the following terrain"
+)
 for (const area of journey) {
-    console.log(`\t* ${area}`)
+	console.log(`\t* ${area}`)
 }
